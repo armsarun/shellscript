@@ -4,9 +4,9 @@ BEGIN{
            #find the directory in the temp file
 
 	    isdir1 = "[ -d " $1 " ] "
-	    isdir2 = "[ -d " $2 " ] " 
-            
-	    #get the script name 
+	    isdir2 = "[ -d " $2 " ] "
+
+	    #get the script name
 
 	    scriptname = "up2low"
 	    awkscriptname = "rename.awk"
@@ -18,13 +18,13 @@ BEGIN{
 
 	    if ( sfile == scriptname || sfile == awkscriptname )
 	    next
-	     
+
 	    # is isdir is directory then skip and display the messafe
 
 	    else if( ( system(isdir1) ) == 0 || system((isdir2)) == 0 )
 	    {
 	       printf "%s or %s is directory can't rename it to lower case\n",sfile,dfile
-	    next 
+	    next
 	    }
 	    else if ( sfile == dfile )
 	    {
@@ -39,4 +39,3 @@ BEGIN{
 }
 END{
 }
-

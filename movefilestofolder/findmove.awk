@@ -7,13 +7,13 @@ BEGIN{
 	#rename file names
         scriptname="move"
 	awkscriptname ="findmove.awk"
-         
+
 	#move file names
 	movefile=$1
-        
+
 	#moving directory location
 	desc="/root/shellscripts/awkscript"
-        
+
 	#won't change the wroking files
        	if (movefile == scriptname || movefile == awkscriptname)
 	next

@@ -38,4 +38,3 @@ else
 fi
 
 rm -f /tmp/tmpdb.$$
-
