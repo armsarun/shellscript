@@ -1,0 +1,41 @@
+#
+# up2low: script to convert upercase filename to lowercase in current working directory
+#
+
+AWK_SCRIPT="rename.awk"
+
+#
+#Change awk path
+#
+awkspath=bin/$AWK_SCRIPT
+
+#list all the dir and files in current working directory and store in file1
+
+ls >/tmp/file1.$$
+
+#change the capital letter to small letter and store in file2
+
+tr "[A-Z]" "[a-z]" < /tmp/file1.$$ > /tmp/file2.$$
+
+# paste the temp files in in one file
+
+paste /tmp/file1.$$ /tmp/file2.$$ > /tmp/tmpdb.$$
+
+# remove the both temp files
+
+rm -f /tmp/file1.$$
+rm -f /tmp/file2.$$
+
+#
+#Verify awkscript is available in path (awkspath)
+#
+
+if [ -f $awkspath ]; then
+	awk -f $awkspath /tmp/tmpdb.$$
+else
+   echo -e "\n$0: Fatal error -$awkspath not found"
+   echo -e "\n Make sure \$awkspath is set correctly in $0 script\n"
+fi
+
+rm -f /tmp/tmpdb.$$
+

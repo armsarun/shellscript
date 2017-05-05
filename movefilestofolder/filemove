@@ -1,0 +1,15 @@
+#script name
+awkscript="findmove.awk"
+#awk script path
+awkpath=$awkscript
+
+#list all the files in current working directory
+ls > tmp/file1.$$
+
+#check the awk file path and raise error if unable to find
+if [ -f $awkpath ]; then
+    awk -f $awkpath tmp/file1.$$
+else
+    echo -e "\n$0: Fatal erro -$awkpath not found"
+    echo -e "\n Make sure \$awkpath is set correctlt in $0 script\m"
+fi 
