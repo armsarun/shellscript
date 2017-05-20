@@ -1,0 +1,7 @@
+#!/bin/bash
+#low battery in 
+level=$( cat /sys/class/power_supply/BAT0/capacity )
+state=$( cat /sys/class/power_supply/BAT0/status )
+if [[ $state == "Discharging" && $level<=15  ]] ;then
+	zenity --warning --text="Low battery connect charger or GO TO HELL"
+fi
