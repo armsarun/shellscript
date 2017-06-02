@@ -10,6 +10,7 @@ check the battery status is Dicharging and battery percentage is <=15
 script has to be add to CRONTAB
 
 * * * * * DISPLAY=:0 /home/arun/Public/./low_battery
+ 
  Note:-
 
  Every min,hour,dayofmonth,dayofweek
