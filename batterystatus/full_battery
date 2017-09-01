@@ -4,7 +4,7 @@
 level=$( cat /sys/class/power_supply/BAT0/capacity )
 state=$( cat /sys/class/power_supply/BAT0/status )
 if [[ $state == "Full" || $level == 100 ]] ;then
-	zenity --warning --text="Battery Full Remove charger or Brust and Die"
+	zenity --warning --text="Battery Full Remove charger or Burst and Die"
 fi
 #Zentiy won't work in Crontab "DISPLAY=:0 need to add before script"
 #http://promberger.info/linux/2009/01/02/running-x-apps-like-zenity-from-crontab-solving-cannot-open-display-problem/
