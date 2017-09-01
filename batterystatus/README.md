@@ -22,3 +22,14 @@ script has to be add to CRONTAB
  ./low_battery ==> script file
 
  script should be executable > chmod +x low_battery
+ 
+ 
+ Crontab note:- 
+ If it doesn't work by above steps then change the 
+ shell of crontab by adding below line in the crontab 
+ 
+SHELL=/bin/bash
+
+Crontab use sh shell sometime so double set bracket"[[]]" can't work on sh shell
+eventually need to change the shell to bash
+
