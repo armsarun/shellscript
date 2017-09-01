@@ -1,7 +1,12 @@
 #!/bin/bash
 #low battery in 
+#--timeout auto hide dialog box after 5 sec
+#2>/dev/null removes the warning of gtk"GtkDialog mapped without a transient parent"
+
 level=$( cat /sys/class/power_supply/BAT0/capacity )
 state=$( cat /sys/class/power_supply/BAT0/status )
 if [[ $state == "Discharging" && $level<=15  ]] ;then
-	zenity --warning --text="Low battery connect charger or GO TO HELL"
+	 zenity --warning --timeout=5 --text="Low battery connect charger or GO TO HELL" 2>/dev/null
 fi
+
+
